@@ -1,0 +1,66 @@
+name: spectralgenesis
+version: "1.0"
+author: Robert Zieba <robert@zieba.site>
+about: Embeds images into audio spectrograms
+args:
+  - verbose:
+      short: v
+      help: enables verbose mode
+  - strict:
+      short: s
+      help: enables strict mode
+  - width:
+      short: w
+      long: width
+      help: sets FFT width, defaults to 1024
+      takes_value: true
+      default_value: "1024"
+subcommands:
+  - embed:
+      about: Embed image data
+      args:
+        - image:
+            short: i
+            long: image
+            help: The image to embed
+            takes_value: true
+            required: true
+        - output:
+            short: o
+            long: out
+            help: The file to save processed audio to
+            takes_value: true
+            required: true
+        - INPUT:
+            help: The audio file to process
+            index: 1
+            required: true
+  - vis:
+      about: Visualize audio spectrogram
+      args:
+        - INPUT:
+            help: the audio file to process
+            index: 1
+            required: true
+        - height:
+            short: h
+            long: height
+            help: the resulting image height
+            takes_value: true
+            conflicts_with:
+                - samples
+            
+        - samples:
+            short: t
+            long: samples
+            help: total number of samples to process
+            takes_value: true
+            conflicts_with:
+                - height
+            
+        - output:
+            short: o
+            long: out
+            help: the file to save the spectrogram as
+            takes_value: true
+            required: true

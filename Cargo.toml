@@ -1,0 +1,11 @@
+[package]
+name = "spectralgenesis"
+version = "0.1.0"
+authors = ["Robert Zieba <robert@zieba.site>"]
+
+[dependencies]
+image = "0.19.0"
+rustfft = "2.1.0"
+minimp3 = "0.3.0"
+hound = "3.4.0"
+clap = {version = "~2.27.0", features = ["yaml"]}
